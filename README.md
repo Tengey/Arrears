@@ -84,6 +84,12 @@ The synthetic data generation process involves creating a dataset that simulates
 **Total_Arrears_GBP**: Total amount of arrears in GBP.
 
 
+## Data Cleaning
+
+To prepare the generated datasets for further exploration and model training, we clean the data by handling missing values, converting data types, and ensuring consistency.
+The detailed steps for data cleaning are documented in the data_cleaning.ipynb notebook.
+
+
 ## Contact Information
 For further inquiries or assistance, please contact:
 Email: edtengey@st.ug.edu.gh
