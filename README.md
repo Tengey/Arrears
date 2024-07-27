@@ -36,7 +36,7 @@ Clone the repository containing the project files from GitHub to your Google Col
 
 **Data Generation Process:**
 The project generates synthetic historical data to simulate customer contracts and financial behaviours.
-Open `historical_data_generation.ipynb` in Google Colab.
+Open [historical_data_generation.ipynb](historical_data_generation.ipynb) in Google Colab.
 Run the provided Python script to generate datasets with and without bias.
 
 **Understanding Bias Introduction:**
@@ -87,12 +87,12 @@ The synthetic data generation process involves creating a dataset that simulates
 ## Data Cleaning
 
 To prepare the generated datasets for further exploration and model training, we clean the data by handling missing values, converting data types, and ensuring consistency.
-The detailed steps for data cleaning are documented in the 'data_cleaning.ipynb' notebook.
+The detailed steps for data cleaning are documented here [data_cleaning.ipynb](data_cleaning.ipynb)
 
 
 ## Data Exploration and Pre-processing
 Data here is exploited and comparative analysis done amongst others to make ready for training and testing.
-Detailed steps in 'data_exploration_preprocessing.ipynb'.
+Detailed steps in `data_exploration_preprocessing.ipynb`.
 
 ### Descriptive Statistics
 
