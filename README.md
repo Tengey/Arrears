@@ -87,7 +87,40 @@ The synthetic data generation process involves creating a dataset that simulates
 ## Data Cleaning
 
 To prepare the generated datasets for further exploration and model training, we clean the data by handling missing values, converting data types, and ensuring consistency.
-The detailed steps for data cleaning are documented in the data_cleaning.ipynb notebook.
+The detailed steps for data cleaning are documented in the 'data_cleaning.ipynb' notebook.
+
+
+## Data Exploration and Pre-processing
+Data here is exploited and comparative analysis done amongst others to make ready for training and testing.
+Detailed steps in 'data_exploration_preprocessing.ipynb'.
+
+### Descriptive Statistics
+
+The comparison of descriptive statistics between `df_1_exploration` and `df_2_exploration` showed significant differences in the following features:
+
+- `Cost_Amount_GBP`
+- `Exposure_Amount_GBP`
+- `Total_Arrears_GBP`
+
+### Distribution Analysis
+
+The distribution plots revealed differences in the shape, skewness, and kurtosis of key features, indicating variations in underlying data properties.
+
+### Correlation Analysis
+
+The correlation matrices for both datasets displayed distinct relationships between features. Significant differences in correlations were observed, suggesting potential bias or data generation issues.
+
+### Bias and Noise Analysis
+
+Scatter plots and comparisons of means and standard deviations helped identify bias and noise. Key findings include:
+
+- Systematic differences in `Cost_Amount_GBP` and `Exposure_Amount_GBP`, indicating bias.
+- Random variations in `Total_Arrears_GBP`, suggesting noise.
+
+Please refer to the notebook [data_exploration_preprocessing.ipynb](data_exploration_preprocessing.ipynb).
+
+### Data Pre-processing
+Target and feature variables are defined here and encoded, then split into test and train sets in 1:5 ratios respectively.
 
 
 ## Contact Information
