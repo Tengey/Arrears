@@ -1,49 +1,105 @@
-# Predictive Model Identifying Customers Likely to Fall into Financial Difficulties
+# Predicting Customer Financial Difficulties using Machine Learning
 
 ## Project Overview
-This project aims to develop a predictive model that identifies customers who are likely to experience financial difficulties within a merchant bank setting. The model leverages synthetic data generation techniques to simulate various customer financial behaviours and contract statuses. The primary goal is to create a robust and accurate predictive system that can aid in early identification of at-risk customers.
+This project aims to build and evaluate machine learning models that predict whether customers are likely to fall into arrears or face financial difficulties. Using a synthetic dataset generated with the Faker library, the project implements feature engineering, exploratory data analysis (EDA), and various machine learning models for classification.
 
 ## Project Structure
-- **library_installation.ipynb**:Notebook for installing necessary library.
-- **historical_data_generation.ipynb**: Google Colab notebook for generating synthetic data, introducing bias, and preparing the dataset.
-- **data_cleaning.ipynb**: Notebook detailing the steps taken to clean and prepare the generated datasets for analysis.
-- **data_exploration_preprocessing.ipynb**: Notebook for data exploration, preprocessing, and comparative analysis to prepare data for modelling.
-- **model_dev_lr.ipynb**: Notebook focused on developing a Logistic Regression model.
-- **model_dev_nn.ipynb**: Notebook for developing a Neural Network model.
-- **model_dev_rf.ipynb**: Notebook for developing a Random Forest model.
-- **model_dev_gb.ipynb**: Notebook for developing a Gradient Boosting model.
+- **data_generation.ipynb**: Notebook for data generation.
+- **data_cleaning_.ipynb**: Notebook detailing the steps taken to clean and prepare the generated dataset for analysis.
+- **data_preprocessing.ipynb**: Notebook for data exploration, preprocessing, EDA, and feature engineering.
+- **model_dev_lr_.ipynb**: Notebook focused on developing Logistic Regression model.
+- **model_dev_rf_.ipynb**: Notebook for developing Random Forest model.
+- **model_dev_gb+.ipynb**: Notebook for developing Gradient boosting, XGBoost, LGBM, SVC, Decision Tree, Extra Trees, and CatBoost models.
 - **README.md**: Project documentation providing an overview of the project and instructions for replication.
 
 ## Environment Setup
 
 ### Google Colab Setup
 1. **Access Google Colab**: Ensure you have a Google account to use Google Colab, a cloud-based Jupyter notebook environment.
-2. **Install Required Libraries**: The project requires specific Python libraries, including Faker for synthetic data generation. 
-3. **Clone Repository**: Clone the GitHub repository containing the project files into your Google Colab environment.
+2. **Install Required Libraries**: The project requires specific Python libraries, including Faker for synthetic data generation.
+pandas
+scikit-learn
+catboost
+xgboost
+lightgbm
+matplotlib
+seaborn
+numpy
+Faker 
+4. **Clone Repository**: Clone the GitHub repository containing the project files into your Google Colab environment.
 
-## Running the Code
+## Dataset Features
+The synthetic dataset includes the following columns, which resemble common customer and contract features in a banking context:
 
-### Data Generation
-- **Data Generation Process**: The project generates synthetic historical data to simulate customer contracts and financial behaviours. Open `historical_data_generation.ipynb` in Google Colab and execute the provided Python scripts to generate datasets with and without bias.
-- **Dataset Files**:
-  - `historical_arrears_data_1.pkl`: Unbiased dataset.
-  - `historical_arrears_data_2.pkl`: Biased dataset.
+**Contract_Term:** Loan duration in months.
+**Contract_Start_Date:** The start date of the contract.
+**Contract_End_Date:** The end date of the contract.
+**Cost_Amount_GBP:** The asset cost in GBP.
+**Regulatory_Compliance:** Indicates whether the contract complies with regulatory standards (Yes/No).
+**Customer_Category:** Type of customer (Corporation, Individual, Small Business, Sole Proprietorship, LLC).
+**Exposure_Amount_GBP:** The customer’s total financial exposure in GBP.
+**Contract_Status:** Current contract status (Closed, Expired, Active).
+**Assistance_Flag:** Whether the customer has received assistance (Yes/No).
+**Risk_Flag:** Whether the customer is considered at risk of financial difficulty.
+**Payment_Status:** Current payment status (Delinquent, Current, Recovered).
+**Forbearance_Amount_GBP:** Amount in forbearance in GBP.
+**Payment_Interval:** Frequency of payments (Monthly, Quarterly, Annual).
+**Late_Payment_Fees_GBP:** Fees incurred for late payments in GBP.
+**Total_Arrears_GBP:** Total arrears in GBP.
 
-### Data Cleaning
-- **Data Cleaning Process**: The generated datasets are cleaned by handling missing values, converting data types, and ensuring consistency. Detailed steps for data cleaning are provided in `data_cleaning.ipynb`.
+## Running the Code - Notebooks Overview
 
-### Data Exploration and Preprocessing
-- **Data Exploration**: Comparative analysis is conducted to explore and preprocess the data, making it ready for model training and testing. Detailed steps are documented in `data_exploration_preprocessing.ipynb`.
+### 1. data_generation.ipynb
+This notebook generates a synthetic dataset using the Faker library. It simulates customer data with realistic contract terms, payment statuses, and financial information. The key columns include:
 
-### Data Preprocessing
-- **Feature Engineering**: Target and feature variables are defined and encoded.
-- **Train-Test Split**: The dataset is split into training and testing sets in an 80:20 ratio.
+Contract_Term, Contract_Start_Date, Contract_End_Date
+Cost_Amount_GBP, Exposure_Amount_GBP
+Customer_Category, Payment_Status
+Total_Arrears_GBP, Late_Payment_Fees_GBP
 
-## Model Development
-- **Logistic Regression Model**: Developed in `model_dev_lr.ipynb`, focusing on binary classification for predicting customer financial difficulties.
-- **Neural Network Model**: Explored in `model_dev_nn.ipynb`, leveraging deep learning techniques for enhanced predictive accuracy.
-- **Random Forest Regressor Model**: Developed in `model_dev_rf.ipynb`, utilizing ensemble learning for robust predictions.
-- **Gradient Boosting Regressor Model**: Explored in `model_dev_gb.ipynb`, focusing on boosting techniques to improve model performance.
+### 2. data_cleaning_.ipynb
+This notebook focuses on cleaning the generated dataset:
+
+Identifies and handles missing values.
+Converting data types.
+Ensuring consistency.
+
+### 3. data_preprocessing.ipynb
+This notebook performs exploratory data analysis (EDA) and feature engineering. It includes:
+
+EDA: Insights on distributions, correlations, and summary statistics for key features.
+Feature Engineering:
+Debt-to-Exposure Ratio: Ratio of Total_Arrears_GBP to Exposure_Amount_GBP.
+Arrears as Percentage of Asset Cost: A percentage column comparing arrears to asset cost.
+Arrears Flag: A binary flag indicating whether a customer is in arrears.
+Data Splitting: Splits the data into training and testing sets (80-20 ratio).
+
+### 4. model_dev_lr_.ipynb
+This notebook trains and evaluates a Logistic Regression model:
+
+Implements LogisticRegression from sklearn.
+Evaluates model performance using metrics such as accuracy, precision, recall, and F1-score.
+
+### 5. model_dev_rf_.ipynb
+This notebook implements a Random Forest Classifier:
+
+Trains a RandomForestClassifier model.
+Features hyperparameter tuning via cross-validation.
+Evaluates model performance using the same metrics as logistic regression.
+
+### 6. model_dev_gb+.ipynb
+This notebook explores multiple advanced machine learning models, including:
+
+Gradient Boosting Classifier
+XGBoost
+LGBM
+Support Vector Classifier (SVC)
+Decision Tree
+Extra Trees
+CatBoost Classifier
+
+## Conclusion
+This project successfully predicts whether a customer is likely to fall into arrears using machine learning. The use of synthetic data allowed us to simulate a realistic banking scenario, and feature engineering, coupled with model selection, played a crucial role in improving model performance.
 
 ## Contact Information
 For further inquiries or assistance, please contact:
